@@ -22,3 +22,132 @@ Towards the end of the video, we briefly touch on the challenges of connecting t
 
 
 Question Source = https://www.youtube.com/watch?v=DH2-vDPFiE4&t=1715s
+
+
+# Used once many years ago
+# Experience gauge - engineering manager ( L6 + )
+8 YOE - backend, data engineering, and full stack applications
+
+Correctness over blocks looking good
+
+Case Study Question :
+
+I want you to make a high-level architecture of a stock broker application like Zeroda, Robinhood, ETrade, Fidelity, or other applications.
+If you’re unfamiliar with the financial space, a broker acts as an intermediary between a client/an end user and a stock exchange like the New York Stock Exchange ( NYSE ) and the Bombay Stock Exchange ( BSA ) . A broker takes orders from clients and places them with exchanges. 
+We should focus across multiple core features and core order types to enable users to make the best and fairest market decisions possible.
+You can assume that an exchange is an already-given as a black box - you need not design this. Make safe assumptions about API contracts with regards to the exchange.
+You can assume clients are end retails users; they are not institutional traders ( e.g. investment banks ) or specialized HFT firms.
+
+Emphasis : Make sure you touch on the challenges of connecting to stock exchanges. Focus on costs, reliability, connectivity, latency, real-time data updates, and fairness/colocation.
+
+Clarifying Questions :
+- large volume : clients and orders
+
+Requirements Gathering : Functional and non-Functional
+- View portfolio/holdings
+- Look up current prices
+- Place orders
+- Track order status ( notification may help )
+- Watchlist : a set of 10/20 that you want to analyze closely
+
+- Execution speed ( no nanosecond, millisec, some delays of a few seconds ) : low latency
+- Order traceability ( audit trails ) 
+- AuthN/AuthZ - verification steps ( of funds )? Security & risk check
+
+- Scale : 
+100M = active user for an online broker
+
+- Order types : executed ASAP ( market ) or standing ( limit ).
+Limit = wait for price to hit threshold and then trigger order
+
+Out of scope :
+- Device type
+
+Data Models/Data Tier/ Data Solutions :
+
+Client, 
+Exchange, 
+Order,
+Holding,
+Watchlist
+
+HDL ( high level design ) :
+
+- all authenticated calls ( detect abuse )
+
+Device -> GET /holdings
+Device -> GET /orders?dateRange&status
+Device -> GET /Watchlist
+Device -> GET /prices?securities
+
+Device -> POST /order{
+  security,
+  # of units,
+  limit/market
+}
+
+pageInfo - do more in UI ( with pagination )
+
+
+(Market Orders) Auth, PlaceOrder -> API Gateway -> OrderService -> Verification (funds) -> 
+          Record Order (pending status) -> 
+          (Market Order) Route to best exchange for execution 
+
+(Limit Orders) Auth, PlaceOrder -> API Gateway -> OrderService -> Verification (funds) -> 
+          Record Order (pending status) -> 
+          Monitor notifications of relevant price changes
+
+
+Can assume mechanisms exist if you want to poll or if you want to get notifications.
+1. Poll - open ended, process on client side, robustness, takes time
+2. Notify - connection ( WS or SSE ) - easier : can wait until arrival
+
+To do one over the other OR hybrid approach?
+Worries - failure or drop notifs?
+
+Time sensitivity - client on a UI and how often a client refreshes their watchlists/orders pages?
+- If user refreshes -> poll. 
+- Elif no refresh -> wait for notification ( EOD notif Fidelity )
+
+Smart polling to reduce need to focus on scenarios
+
+CAP theorem - which one tradeoff? 
+  Surety of order execution!
+
+
+Highly tabulated data
+relDB good for business analytics : orderFlow
+MongoDB -> to the UI ( relDB = the backend usages ) 
+ACID discussion 
+
+Stop/other criteria met - orderExecutes
+Limit - past the price
+Mechanism to get the price and to exec limit orders
+
+Order Service :
+  BUY [stock1,price1]
+  SELL [stock2,price2] - trigger limit
+  BUY [APPL,price3]
+  SELL [TSLA,price4]
+
+  (orderType,orderSecurityName)
+
+
+
+Limit orders are ae minority class of orders
+Prices at a given time right ( listening to something continuously )
+
+Receive notifications, dedupe by security type, and find quickly ( binarysearch ) if limit criteria met and then execute orders
+
+SelfAssessment :
+- A bit out of practice
+- Eliciting of reqs a bit unclear
+
+Did well on :
+- Stuff came up : reasonably correct
+- how got there : can use work
+
+Improvement areas :
+-
+-
+-
