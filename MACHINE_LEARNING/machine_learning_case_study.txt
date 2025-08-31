@@ -1,0 +1,20 @@
+Machine Learning Interview ( Junior, 1-2 years out of college )
+
+Templated Structure :
+
+Conceptual Questions [ 10-20 minutes ]
+
+Explain differences : supervised learning versus unsupervised learning.
+Explain differences : train, test, and validation data. 
+Why does splitting the data matter?
+What distinguishes classification from regression? 
+What metrics would we capture to measure error and loss for classification and for regression.
+
+Coding [ 30 minutes ]
+
+I’ve provided the following data sets with training and testing data
+I want you to code me linear regression, a SVM, and KNN
+I want you to tell me which metrics you’d collect and why?
+Can we minimize the error?
+Can we outperform the listed metrics collected
+What steps can we take to improve the r-squared ( or other metrics )? Perhaps collect more features?

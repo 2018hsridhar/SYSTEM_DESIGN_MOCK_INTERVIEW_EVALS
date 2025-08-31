@@ -1,0 +1,40 @@
+Case Study ( focus on data engineering  for big data processing systems ) :
+Topic : Ad Click Event Aggregator
+
+Digital advertising has taken off as a bigger share of total advertising spending with the rise of facebook, youtube, and the online media economy.
+As engineers, we need to track ad click events to enable us to provide aggregated statistics. 
+These statistics empower us to quantify, bill, measure, and report the effectiveness of online advertising campaigns. 
+
+I want you to design me an ad click event ETL aggregation system at Google Scale.
+We first focus on ETL pipeline correctness, and then we focus on optimizations.
+
+I also want us to focus on the “meat” of the question in our upcoming design deep dives :
+how to model the events under ingestion.
+How to compute and compress aggregate data from raw data.
+How to get the best accuracy of data under ingest.
+
+
+
+[ Your Safety of Assumptions ]
+100,000 seconds in a day ( 10e6 ) 
+300 ( 3e2 ) days in a year ( yep )
+Powers of 10 and scientific notation for quick ballpark numbers and estimates
+Exact figures not needed
+Feel free to leverage third-party solutions, cloud technologies, and open source frameworks such as Apache Flink or Spark.
+
+Clarifying Questions and Narrowing Down Scope:
+
+Out of Scope :
+API Contract
+Fault Tolerance
+
+Functional and Non-Functional Requirements :
+
+System Interface / Data Flow / Sequence of Actions :
+
+High Level Design & Design Deep Dives :
+
+
+
+Source of Problem : Alex Xu, System Design Interview, Chapter 6 : Ad Click Event Aggregation
+

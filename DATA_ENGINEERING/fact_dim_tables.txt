@@ -1,0 +1,27 @@
+Question for Data Engineering :
+
+We’ll be doing a brief review of Fact Tables and Dimension Tables.
+
+Case Study :
+You’re on a data warehousing team, a data centric team, working with multiple business to design and deliver solutions, which requires building data models from scratch.
+
+Design me a fact-dimension table model for business analytical purposes on AirBnB data. The table should contain business processes measurements. ttributes and actual measurements.
+
+
+Review of star schema with denormalized data and snowflake data with normalized data
+
+Evaluation Metrics : 
+-
+-
+-
+-
+-
+
+
+
+
+
+
+Question Resource s:
+a. https://www.youtube.com/watch?app=desktop&v=vsBo2CzJHeY&t=301s
+b. https://www.youtube.com/watch?app=desktop&v=0CZyRiAhlDA

@@ -1,0 +1,178 @@
+- Software engineer ( 10 YOE ) 
+- Mix : Data, Backend, Software
+- Curr @ ScaleAI ( prev @ Uber/Snap/Meta )
+- Mixed bag upcoming : SWE and DE ( OpenAI, Netflix )
+
+Data modeling & SQL :
+ETL & Pipeline :
+
+Case Study ( focus on data engineering for big data processing systems ) :
+Topic : Ad Click Event Aggregator
+
+Digital advertising has taken off as a bigger share of total advertising spending with the rise of facebook, youtube, and the online media economy.
+As engineers, we need to track ad click events to enable us to provide aggregated statistics. 
+These statistics empower us to quantify, bill, measure, and report the effectiveness of online advertising campaigns : campaign managers, buiness personas, etc., . 
+
+I want you to design me an ad click event ETL aggregation system at Google Scale.
+We first focus on ETL pipeline correctness, and then we focus on optimizations.
+
+I also want us to focus on the “meat” of the question in our upcoming design deep dives :
+- how to model the data under ingestion.
+- How to compute and compress aggregate data from raw data.
+- How to get the best accuracy of data under ingest.
+
+
+[ Your Safety of Assumptions ]
+- 100,000 seconds in a day ( 10e6 ) 
+- 300 ( 3e2 ) days in a year ( yep )
+- Powers of 10 and scientific notation for quick ballpark numbers and estimates
+- Exact figures not needed
+- Feel free to leverage third-party solutions, cloud technologies, and open source frameworks such as Apache Flink or Spark.
+
+Clarifying Questions and Narrowing Down Scope:
+
+- Ad clicks : people click on ads & frameworks track events ( user loginId, uniqueness of the ad click )
+- Session time, duration, other user webpage browsing activity elsewhere => out of scope
+- Have data where ads are stored ( place of origin ) 
+- Data volume : 1 billion ad clicks per day and 1 million ads in total
+  50% year-on-year growth rate of ad click events
+- Single org of focus
+- Deduplication of raw click events is in scope
+- latency : 
+  (1) RTB - real-time bidding - closer to RT needs ( matching advertiser with the publisher ) X
+  (2) reporting/ad biling - not a RT requirement ( our focus ) [ downstream data lakes ] 
+
+Out of Scope :
+- API Contract
+- Fault Tolerance
+- Streaming and real-time engines
+
+Functional and Non-Functional Requirements :
+
+Questions of ads data
+- Analytics Use
+- CVR : Conversion Rate %-sessions with result per ad click : 
+- CTR : % users clicked on an ad, % clicks on an ad ( #-users clicked , #-clicks ) 
+- ST : session time
+
+Last M minutes ( number of click events )
+
+Source data:
+- rawEvent = [ad_id, user_id, session_id, click_timestamp (dupe events)]
+- staging grain: [ad_id, user_id, session_id, click_timestamp] join with dimensional data
+* safe assumption : some ads like in a campaign/grouping of ads ( by company/type/segment group )
+- dim/enhancement data: ad_org, ad_campaign, user_device, user_region, session_start_timestamp
+
+Data flow:
+- dedupe the raw event data onto this ad/user/session/timestamp grain and join dim data about the ad/user/session
+- batching, hourly staging tables / ETL runs, downstream might be aggregated to a daily level
+- deduped staging data, now we want to sessionize and batch to more processed data
+- each user-session should aggregate # of clicks, # of ad clicks, # of unique ads clicked (measure cols)
+- every hour we run this batch job looking at the last x hours from some watermark (last successful run timestamp) 
+- idempotent, logic should be merge/upsert style, based on our grain
+- batch job results in fact_user_session table, fact_ad_clicks
+
+Tables:
+- fact_ad_clicks (click_id, session_id), fact_user_session (click data, boolean ad clicks > 0)
+- user and ad dim tables
+
+# users clicked: select count(distinct user_id) from fact_user_session where has_ad_clicked = True
+# clicks: 
+
+- infra from raw to aggregates - optimizations we put for computing the aggrs
+
+System Interface / Data Flow / Sequence of Actions :
+
+- partition or split up processing into multiple jobs, splitting/sharding by user_id makes sense 
+- multiple jobs kicked off every hour, each job handles some range of user_ids (hash), 
+
+User:ad = 1:n cardinality => ad level granularity for metrics => partition by ad_id for processing server ( range of ads )
+Derive staging data - Spark, Map Reduce
+
+MR: ad_ids => aggr & reduce on id - #-clicks on ad for last 5 minutes
+
+- ad_batch_id, ad_id, # clicks, # distinct users, batch_start_timestamp (5 min intervals)
+
+Spark/MR jobs every 15 min, grab ad-level batch derived data
+every hour, traditional SQL batch jobs (DBT), join with dimensional data (ad, user info) in data warehouse or other sources
+
+final aggregation: ad-level agg table, agg_ad_clicks
+agg_ad_clicks: ad_id, daily level, per day: # clicks, # users, # sessions
+agg_session_data: combine ad session data with other session info downstream
+ad-level analytics, use agg_ad_clicks table
+
+High Level Design & Design Deep Dives :
+
+Backfill/recovery jobs :
+  if MR job failed:
+  have background/async backfill job that can be run that reprocesses raw data into staging data
+  configurable, can specify time range and maybe even ad id range, importantly is idempotent, doesn't need to be too performant
+  Recovery aggregations again from backfill data
+
+Resilience:
+have buffers/queues in between major stages
+first scaling up
+queue age metric, keep track of backpressure, max retries if job at stage keeps failing
+backpressure to slow down incoming traffic, recovery queue for jobs taking too long or failing repeatedly
+producers slow down, emit errors to incoming, recovery mechanisms and raw data is still being stored
+graceful degradation, prioritize system being somewhat available
+
+Source of Problem : Alex Xu, System Design Interview, Chapter 6 : Ad Click Event Aggregation
+
+watermark details:
+successful job –> store last event_time that was processed, invariant that everything before handled
+job not successful –> picked up in next run bc watermark not updated
+watermark = last_successful_run_at
+
+Discussion : which time to use and why for aggregations -> #-clicks in the last M minutes( last 5 minutes, evolving window )
+  T,T+1,T+2 minute => we capture a different set of events
+  eventTime versus processTime ( invariant : processTime = eventTime + networkDelay + procDelay, processTime >= eventTime )
+  lookback period on data : (time - last_one_hour/X_minutes )
+
+Reporting purposes in aggregation purposes - accuracy, latency, correctness, reliability?
+BI purposes :
+  procTime needs to be closer ( or equal to ) eventTime => accurate reporting
+  Can lookback window pick up late event arriving data?
+  lateArrivingevents are low probability
+
+  Watermark : larger watermark versus smaller watermark ( changing last M minutes => last 1 minute lookback or last 10 minutes lookback )
+  larger
+    + accuracy
+    - more processing / dupl work
+  smaller 
+    + less processing 
+    - miss out late data arrivals
+    - TTL to short ( lower accuracy ) 
+
+Mechanisms for backfill/catchUp helps us in the end :-)
+How to test in real-world :
+  - notice data patterns : P50-P99 ( eventTime, procTime ) deltas and failureRates analysis
+  - function of ( accessPtrns,dataPtrns )
+
+Self Assessment :
+
+What you did well :
++ Requirements gathering
++ Staging Dataflow 
++ Good questions on the data needed and its structure
++ Good analytic questions asked
++ Leverage off-the-shelf techniques and components
+
+
+Where you can use refinements :
+- focused to much on exact queries/tables : focus on infra/arch/E2E
+- more on lowerLevelDetails : focus on dataFlow & high-level details
+- talk more on tradeoffs and alternatives of E2E choices
+
+Items to Learn :
+* watermarks
+* late arriving data
+* spark and map-reduce
+
+
+
+
+Really interesting question, interviewer was very engaged, good balance of listening and limited guidance / keeping on track. Appreciate the detailed feedback.
+
+
+
