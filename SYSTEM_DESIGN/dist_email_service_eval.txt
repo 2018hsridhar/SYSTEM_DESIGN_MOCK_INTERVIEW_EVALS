@@ -1,0 +1,38 @@
+TC review ( Feedback Is Strongly Positives )
+
+TC has strong communication sklls
+TC makes good justification for MPV and phase-based development on the gathering of requiremnets 
+TC asked good clarification questions
+TC follows templated structures and is able to attend to different sections under ask really well.
+TC has good gauge on capacity planning : in TB volume of 1 year of data retention, and understands that the system is tenable with these data constraints
+TC reasoned about email raw data, metadata, and attachment data - and how to incorporate design components to handle such asks.
+TC was not a domain matter expert on SMTP or specific protocols but still ran through good thought experiments on how to design an asynchronous scaled sender-receiver e-mail flow with message queues
+TC recognizes how to build out from single sender-recipient to a fanout model with multiple recipients
+TC engaged in a solid discussion on the dataabse section - really understands Google Cloud Spanner
+TC address design deep dives really good - failures, retries, extensions, changes in search technologies
+
+Google
+Generic GFS
+Each Google service runs through GFS ( Google FE service ) and does BE routing
+Keep singular for now
+In backend servers -> seperate flows : gmail, ___, ____, ____
+Intraservice routing
+
+Protocol-basis
+Address uniqueness : is user authorized ( to send/to receive/to query the e-mail )
+ We would put check stages : 
+if answer yes, do in parallel
+
+
+Feedback - 1 person edits the diagram - let platform team know there’s issues
+If boxes change, things don’t persist as well
+Sometimes, I can’t see diagrams showing up in RT editor - what’s going on ( I gave a 5 minute extension window )
+
+
+
+
+
+
+
+
+

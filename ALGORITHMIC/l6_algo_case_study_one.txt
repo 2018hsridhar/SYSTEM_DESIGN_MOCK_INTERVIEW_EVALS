@@ -1,0 +1,41 @@
+Recently I interviewed a TC with more than 10 professional YOE and level set them accordingly with a leetcode HARD. The problem be solved iteratively ( recursion free ) with a single data structure ( a stack or a queue ); hence, I think it’s fair game to ask .
+
+How did I prompt the candidate as an interviewer :
+(1) I informed TC not to write up the boiler plate for executing or scaffolding the unit tests.
+(2) I informed TC  that they are welcome to 
+Toggle between the code editor and the whiteboard if they felt that 2-3 minutes of diagramming and visualizations would assist them.
+
+At the end of an interview, I like to ask the TC :
+(A) What they think they did well
+(B) Where they think they could improve on further
+
+
+What the TC did well :
+TC thought of good ideas and engaged in solid brainstorming of solutions.
+TC thinking of pre-order : left->right->root
+	reasoned against inOrder and pre-order : leaning pre or post order
+	append values at the nodes
+	postOrder : left->right->root
+TC wrote up serialization method effectively. It’s clean, concise code.
+
+
+What TC can improve on :
+TC should ask the datatype : are they integral or not integral? Can they be positive only ( or positive,negative,zero )? Do we have duplicates
+TC comes in with 10 more professional YOE - at a senior level, it’s expected that they ask more clarifying questions to their interviewer. TC can not expect the interviewer to clarify all aspects of a problem.
+TC struggled with deserialization approach : how to incorporate a stack and tokenizations.
+TC can reason  their Big-O comlexity and pre-empt questions asked : please conjure N and H earlier ( trees can be skewed ) 
+TC needs to work through deserialize and solutioning to the problem faster.
+TC needs to focus on their problem-solving speed.
+
+Level Setting :
+Junior : Hire
+Mid : Leaning Hire
+Senior/Staff + : Leaning No Hire
+
+ 
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+CASE STUDY QUESTION : 
+
+E-commernce platforms like Amazon.com and Facebook marketplace have exploded in popularity over the last few years. I want you to design me a scalable paymnents system/backend that powers such platforms ; it should be able to settle online financial transactions.
+
+We won’t design a backend system handling payments like Paypal, Stripe, or other PSPs ( Payments Service Providers ).
+We won’t design digital wallet like Apple Pay or Google Pay. 
+Those are out of scope. 
+
+Emphasis : I really want us to think about failure scenarios with failed payments - and their handling at the end of sessions. Especially since in the real-world, network connections can be unreliable and we need system ways or answers to handl e failure cases. We shouldn’t just think of the happy path.
+
+Clarifying Questions :
+
+Non-Functional Requirements :
+
+Functional Requirements :
+
+Personas :
+V O
+API Contract :
+
+Data Tier / Data bases / Data Modeling :
+
+High Level Design + Design Deep Dives :
+
+Capacity Planning :
+
+
+Good requirements gathering ( thinking from personas ) 
+
+1. TC made sure to define the `pay-in` flow
+2. TC demonstrates capacity planning : 1% ( DAU ) transact - 100K transactions/day
+3. TC understands how user thinks of purchase behaviors ( modeling the end customer ). Sets systems’ TPS
+4. If I stopped the interviewer, they answered the question
+5. TC gets : a payments order versus an individual transaction. Changed us to answer from perspective of a shopping cart.
+6. TC minified their data models
+7. TC thinking about performance issues : places of contention ( lot of buyers )
+8. TC good with cart living in user’s browser ( it’s ephemeral ) ( in browser cache ) - less data model complexity
+9, TC asked on tracking of failure ( recollection of transaction needed ) and leveraging an ENUM for different transaction states
+10. TC understands RelationalDB usage ( highly-structured data ) ( ACID ) ( consistency guarantee )
+11. TC justified : no extra optimizations on workflow ( not read/write heavy ). Equally read-heavy and write-heavy.
+12. TC could discuss failed payments and identify low risk ( e.g. the cart - the user can try again and refresh ) versus high risk steps
+
+Feedback :
+1. TC should really focus on the meat of the question. They were detracted a bit by setting up an inventory and how buyers and sellers could interact with the inventory. 
+
+
+
+
+
+
+
+https://www.linkedin.com/in/harisrid/
+http://harisrid.blog/
+
+
+
+
+
+

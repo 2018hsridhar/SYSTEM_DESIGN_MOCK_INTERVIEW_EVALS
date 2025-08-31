@@ -1,0 +1,41 @@
+TC performance : system design question 
+
+Positives :
+TC asked solid clarifying questions
+TC established core features really well
+TC established non-functional requirements well
+Businessnames changed ( not end of the world )
+TC understands end user experience
+TC solidly understands how to answer questions interviewer is focusing towards.
+TC thinks creatively of different possible functionalities
+TC understands approaches :
+Good discussions on geohash vs quad trees
+geohash = nearest place/neighbors and quad trees = zoom in and zoom out
+TC understands BFS/DFS for path finding from source and destination
+Leverages ranking based on current traffic conditions.
+GraphDB ( Neo4J ) 
+Nearest neighbor/Djkstarsa/A* ( shortestPath )
+weighted ( or unweighted ) 
+Sourcing of location data :
+3PVendor/Government
+If done ourselves - Google Cars with pics 
+how to store location data ( Cassandra ) ( write volume )
+TC gets simplicity of data ( timestamp, long, lat ) with freshness. Why Cassandra ( akin to WideTable ) very Columnar not to indexed ( no nested objects/complex schemas ). Or DynamoDB
+TC maps
+Imagery ( saved somewhere ) or generative
+Store data in quadtree ; service can reconstruct street view / block view.
+Saved : satelite imagery / street imagery ( granular ) 
+TC understands CDN benefits
+Distributed by location / region / other
+It’s a cache
+
+Negatives :
+TC should review types of databases
+
+Neutrals :
+
+It’s a hard problem since we need to focus on what your interviewer really wants to focus and delve on - in this case, ETA routing and navigation.
+
+
+
+

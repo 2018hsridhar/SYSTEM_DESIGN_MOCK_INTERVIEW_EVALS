@@ -1,0 +1,52 @@
+Case Study :
+
+I want you to design me a simplified Google Maps application with key features. This service is just like the one developed by Google in 2005, which provides multiple functionalities - satelite imagery, street maps, real-time traffic conditions, and route planning.
+
+Source of Question : Alex Xu’s book, System Design, Volume 2, Chapter 3 : Google Maps.
+
+We don’t need to build out all of google maps - we strictly focus on core features.
+
+Key Notes for Optimizing Interview Performance :
+We can save capacity planning until the end of our session, fi desired
+Please feel free to deviate from the template order specified.
+Feel free to toggle between the white board ( diagramming ) or the text editor.
+Correctness over diaram prettiness - I'll lint the diagrams over the session
+Leverage powers of 10 and scientific notation ( e.g. 10e7, 10e2 )  for capacity planning.
+
+
+Intro : 0:00 - 5:00
+Session time : 60 minutes max ( 5:00 - 65:00 ) 
+Debrief : 65:00 - 70:00
+
+Clarifying Questions ( 10 minutes ) :
+
+Out of Scope :
+
+Functional and Non-Functional Requiremnets ( 5 minutes ) : 
+
+Capacity Planning ( 5 minutes ) :
+Seconds per day = 100,000 
+Population size of America = 100 million
+
+Data Models/Data Tiers / Databases :
+
+Miroservices / High Level Design :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Design Deep Dives :
+
+Questions :
+How would you expand your system? What potential improevments do you identify?

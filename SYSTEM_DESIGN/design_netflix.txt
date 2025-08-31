@@ -1,0 +1,35 @@
+Case Study Question :
+
+I want you to design me a large-scale video sharing platform service like Youtube, Netflix, or Hulu. 
+
+Your primary focus is to ship a first iteration of a minimal viable design out. We’ll then focus into optimizations and refinements.
+
+Emphasis : I do want us to focus on future meat of the question - describe the video transcoding pipelines/architectures.
+
+
+Safe assumptions
+Can work with powers of 10
+Can work with scientific notation : e.g. 10e9/10e3 =1,000,000 = 10e6
+Can assume 100,000 seconds/day
+You can leverage pre-existing technologies and cloud services in place of building all components by yourself and explaining all the details.
+Correctness over pretty diagrams
+
+
+Source of Question : Alex Xu, System Design Interivew, An Insider’s Guide, Volume 1
+
+Clarifying Questions & Requirements Gathering / Scoping :
+
+Non-functional requirements :
+CAP theorem => 
+
+API Contract :
+
+Data models/Data Tiers/Databases :
+
+High-Level Design :
+
+
+Metrics: 
+
+Capacity Planning
+
