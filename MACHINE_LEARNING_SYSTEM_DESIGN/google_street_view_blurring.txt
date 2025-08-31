@@ -1,0 +1,33 @@
+Case Study :
+
+I want you to design a service similar to Google Street View Blurring Service.
+Google street view was launched back in 2005 to provide street-level interaction panoramas of worldwide public networks. In 2008, Google launched a system to automatically blur human faces and license plates to protect user privacy.
+
+Your system should be highly scaleable.
+
+You may leverage pre-existing ML technologies, algorithms, and architectures. But we will not discuss them in significant depth for the sake of time.
+
+Template Structure :
+
+Clarifying Questions :
+
+(ML Problem Framing ) Business Objective, ML Objective, & ML Category :
+
+Feature Engineering :
+
+Data Engineering :
+
+Model Selection, Model Training, and Loss Functions :
+
+High Level ML System Design :
+
+Online Metrics :
+
+Offline Metrics :
+
+Additional Talking Points :
+
+Source of the Problem :
+
+https://vinija.ai/mlsysdes/GoogleStreetViewBlurring/#overview
+Machine Learing System Design Interview : An Insiders Guide - Chapter 3 : Google Street View Blurring Service
