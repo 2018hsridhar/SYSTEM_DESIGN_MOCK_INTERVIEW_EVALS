@@ -1,0 +1,24 @@
+Case Study Question :
+
+I want you to make a high-level architecture of a stock broker application like Zeroda, Robinhood, ETrade, or other applications.
+If you’re unfamiliar with the financial space, a broker acts as an intermediary between a client/an end user and a stock exchange like the New York Stock Exchange ( NYSE ) and the Bombay Stock Exhcange ( BSA ) . A broker takes orders from clients and places them with exchanges. 
+We should focus across multiple core features and core order types to enable users to make the best and fairest market decisions possible.
+You can assume that an exchange is an already-given as a black box - you need not design this. Make safe assumptions about API contracts with regards to the exchange.
+You can assume clients are end retails users; they are not institutional or specialized HFT firms.
+
+Emphasis : Make sure you touch on the challenges of connecting to stock exchanges. Focus on costs, reliability, connectivity, latency, real-time data updates, and fairness/colocation.
+
+
+
+
+
+In this video, we discuss the high-level design of Zeroda, a stock broker app. We start by talking about the app's capabilities, including features like watchlists, market depth, stock performance analysis, buying and selling stocks, and portfolio management. We also mention the order book and trade book, which track orders and transactions.
+
+We explain that Zeroda acts as a broker between clients and stock exchanges like the National Stock Exchange (NSE) and Bombay Stock Exchange (BSE). Zeroda takes orders from clients and places them with the exchanges. The market depth feature allows users to see the number of orders and their prices in the market. This information helps users make informed decisions about buying or selling stocks.
+
+We discuss different types of orders, such as market orders and limit orders. Market orders involve buying or selling at the current market price, while limit orders allow users to set a specific price at which we want to buy or sell stocks. We also mention the importance of real-time stock price updates and the need for a fast and reliable system architecture.
+
+Towards the end of the video, we briefly touch on the challenges of connecting to stock exchanges, including the cost of acquiring permissions and the need for reliable communication lines. We mention that exchanges strive for fairness by ensuring equal wire lengths for all brokers to minimize the latency of updates.
+
+
+Question Source = https://www.youtube.com/watch?v=DH2-vDPFiE4&t=1715s

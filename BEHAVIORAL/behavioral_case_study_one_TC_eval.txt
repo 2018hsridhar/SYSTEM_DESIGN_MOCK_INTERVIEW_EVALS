@@ -1,0 +1,45 @@
+Notes on TC [ The Candidate] Performance
+
+What TC did well  ( Overall ) :
+TC had strong stories/scenarios prepared for the 10 questions asked. TC didn’t freeze in their responses.
+TC stories really demonstrated thought process, leadership skills, organizational thinking skills, and mentorship skills.
+TC stories are level-set accordingly and demonstrate senior-engineer capabilities.
+
+What made TC’s stories stand out :
+TC presented evidence of deliverables in production settings : metrics of B2B reductions and B2C reduction and conversion of manual work to automated efforts .
+TC story on receiving feedback shows growth in soft skills : document writing and communication of questions to the right business personas.
+TC story on trouble shooting is strong - demonstrates ability to effectively handle a crisis ( with failover ), running smoke tests, and checking the right infrastructure components and configs.
+TC recognized to emphasize her deliverables ( I statements ) versus we statements ; it was clear what TC did.
+TC demonstrated solid mentorship skills - is an onboarding buddy, sharing of documents, finding small features to pick up and ramp up on, answering PRs. TC also recognized when they say a mentee improve.
+TC shows delegation skills and ability to redistribute work to take on higher-level features and problems.
+TC presented evidence of how to talk to managers/folks in an organization to prioritize tasks when all tasks are deemed to important.
+TC leadership stories shows capability of taking on leadership roles when others unavaialble and still delivered end-to-end platforms and projects across both companies. 
+
+Areas for Further Refinement :
+It’s easy for engineers to get really passionate about their past projects or technical areas of expertise, but behavioral interviews are really short ; exert mindfulness.
+
+
+Placement :
+Junior Level/Mid-Level : N/A ( evidence intimiates overqualified TC )
+Senior Level : Strong Hire
+Staff Level : Leaning Hire
+
+
+Key Differentiators ( personal opinions ) :
+It’s less about technical skill and more about organizational thinking and behaviors differentiating these levels,
+Senior-level stories typically involve
+Mentorship stories of junior engineers or mid-level engineers
+Infrastructured/design-related thinking stories.
+Tackling ambiguous problems ( the how )
+Pairing with other senior engineers.
+Feedback stories and learnings from staff/senior staff/principal engineers above them.
+Staff-level/Senior-Staff-Level stories usually entail 
+A. Organizational impacts
+B. Multi-quarter/year impacts
+C. Finding the ambiguous problem to tackle ( the what ).
+D. Pairing with Management & Leadership to identify how a targeted domain space should evolve ( the why ). 
+E. Mentorship and guidance of senior engineering talent.
+
+
+
+
