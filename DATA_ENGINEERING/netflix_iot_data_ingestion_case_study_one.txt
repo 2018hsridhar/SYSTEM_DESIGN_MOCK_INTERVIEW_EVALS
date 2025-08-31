@@ -1,0 +1,70 @@
+# Data Engineering -> Behavioral Questions
+
+Tell me about a time you saw an inefficiency in a data processing product or a pipeline. How did you go about solving it? 
+
+Depth of tools - Hadoop ( HDFS file structure ), Airflow for pipeline orch, Spark ( ETL ), own streaming ingestion ( akin to Kafka ) ( limited )
+
+ETL/System Design Questions :
+Case Study : I want you to design me an end-to-end solution. Construct me a data pipeline for near-RT ingestion of Netflix IoT Data : click stream data or playback data. 
+  It should be designed for ad-hoc monitoring of select metrics. It operates at Netflix scale and data and the users is geographically-distributed ( large user base ).
+
+
+
+End Goal : 
+  - Reduce customer churn : user base retention
+  - Segment group analysis of your user base. 
+  - Understand of viewing patterns or session patterns
+
+Business Use Case :
+- Customer retention and user base growth
+
+Clarifying Questions :
+- metrics : up for your decisioning. 
+- DAU
+- MAU 
+
+- Active = user spent 1 view event ( for a few seconds ) in a session. 
+- Retention = MAU, stickiness ( DAU / MAU ), or new ( L14 )
+- Focus on Active users
+
+Facts & Dims :
+- fct_view_events> Grain> per session, per user, view event
+event_id(PK), session_id (FK), event_type, user_id ( FK ) , media_id (Fk), start_timestamp, end_timestamp, location (granular), platform (web, mobile)
+
+- fct_daily_activity: Grain > day, per user, activity stats
+-- activity_id ( PK ) , date, user_id ( FK ) , media_id, platform, timespent, #completed_views, #playback_count, #total_views, location (country)
+
+dim_user
+- user_id ( PK) , email, age, sign_up_date, sign_up_location 
+
+-- cumulative dim_daily_user_status> per day, per user, is_active or not > 90 days
+user_id, signup_date, age, first_activity_date, last_activity_date, daily_status (active, churned, resurrectrd),weekly_status, is_active, is_weekly_active, is_monthly_active 
+- it's a rolling fact table
+
+> pre-aggregated very Fast fct_active_user_fast
+date, DAU , MAU, WAU, retained_users, resurrected_users , churned_users
+
+ Capacity Planning :
+ - Powers of 10
+ - 100,000 seconds / day 
+ - 100 million users
+ - 10 million views/day ( 10 million typical DAU = 10% user base size is daily active ish )
+ - 5 sessions/day 10 mil users => 50 mil sessions
+
+ 100 bytes * 50 mil = 5 G / day -> one year = 15TB / year
+ 
+ Columnar storage
+  - Parquet/ORC
+  - Compression
+  - Optimize w/partitioning ( dist storage )
+    PartKey = by the hour
+    bucketing = userId ( hash Bucket )  
+
+Design Ideas :
+- streaming Ingestion ( as events happen )
+- distArch
+
+
+
+
+https://www.youtube.com/watch?v=53tcAZ6Qda8&t=603s
