@@ -1,0 +1,228 @@
+My Data Engineering Interview : Case Study #1
+
+Data Engineering Interview
+
+Behavioral Interviews ( talke about your experience ) :
+Tell me about a time you saw an inefficiency in a data processing product or a pipeline. How did you go about solving it? ﻿
+A product manager comes to you to develp a feature needing a data pipeline. What questions would you start asking to address business needs?
+Describe a data engineering project you worked on before.
+
+Basic Technical Questions :
+What your depth of exeprience with tools - Hadoop, Spark, Kfaka, Airfllow, or cloud platforms like ADF : AzureDataFactory?
+Can you review the differences between OLTP vs OLAP?
+What makes ETL different from ELT?
+How would you handle changing schemas in upstream pipelines or multiple disparate data sources?
+
+
+
+Clarifying Questions
+Handle a variety of metrics - e.g. user click stream or playback actions.
+User engagement
+Customer churn ( frequency of visitations ) - especially for growing products.
+Action on the users they might loose to their competitors
+Path analysis ( visited pages )
+Behavioral profiling ( cluster )
+Should it be a large-scale data pipeline?
+General solution of targeted tools/tech/platforms?
+Do we need sub-second latency? Milliseconds?
+Flink ( RT dist compute ) ( more perf )
+split metrics/events ( filter by tags/topics ) and send!
+
+
+Capacity Planning
+User/Subscriber base -
+DAU -
+Spiky or uniform distribution?
+
+
+
+Main Focus
+Building your pipeline ( and the components ) to handle the event stream data
+Ingestion into data lakes or data warehouses -> 5 phases
+Data Capture
+Streaming/Batching
+Processing
+Storage
+Analytics
+
+Push or Pull Method for collections/data Infra :
+agents/daemons?
+push + : continuous pushing but infra overwhelm possible. Infra elasticitiy needed
+pull + : not as overwhelm BUT not as real-time. Scheduling determinations onus on you. Overpolled or under polled? Time and resources not spent?
+
+
+
+s
+
+Spark as distributed computing
+Kafka + Spark = streaming model ( they fit in ) 
+	good for event-driven
+	lambda for pre-processing, Kafka as a buffer
+	Spark : performant, ops in micro batches ( not sub-sec latency )
+
+
+Data Lake : store the raw events!
+Multi-layered/diff buckets
+Raw layer => processed layer => access layer
+For analytics
+Why ? Historical ( vs stream ) analytics!
+Stream : For Kafka only
+AWS Athena : Can query S3 ( acess layer )
+Analysis in real-time : NoSQL Db
+Straight-out-of-the-box analytics
+
+NoSQL
+RealTime Key Insights
+schemaless
+1 MIL + records of columns
+fast reads/writes : think DDB
+
+
+
+
+Amazon Managed Kafka
+Firehose as a buffer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SQL Schema
+Pandas Schema
+Table: Accounts
+
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| account_id  | int  |
+| income      | int  |
++-------------+------+
+account_id is the primary key (column with unique values) for this table.
+Each row contains information about the monthly income for one bank account.
+ 
+
+Write a solution to calculate the number of bank accounts for each salary category. The salary categories are:
+
+"Low Salary": All the salaries strictly less than $20000.
+"Average Salary": All the salaries in the inclusive range [$20000, $50000].
+"High Salary": All the salaries strictly greater than $50000.
+The result table must contain all three categories. If there are no accounts in a category, return 0.
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+
+Input: 
+Accounts table:
++------------+--------+
+| account_id | income |
++------------+--------+
+| 3          | 108939 |
+| 2          | 12747  |
+| 8          | 87709  |
+| 6          | 91796  |
++------------+--------+
+Output: 
++----------------+----------------+
+| category       | accounts_count |
++----------------+----------------+
+| Low Salary     | 1              |
+| Average Salary | 0              |
+| High Salary    | 3              |
++----------------+----------------+
+Explanation: 
+Low Salary: Account 2.
+Average Salary: No accounts.
+High Salary: Accounts 3, 6, and 8.
+
+
+https://leetcode.com/problems/count-salary-categories/description/?envType=study-plan-v2&envId=top-sql-50
+
+
+
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| project_id  | int     |
+| employee_id | int     |
++-------------+---------+
+(project_id, employee_id) is the primary key of this table.
+employee_id is a foreign key to Employee table.
+Each row of this table indicates that the employee with employee_id is working on the project with project_id.
+ 
+
+Table: Employee
+
++------------------+---------+
+| Column Name      | Type    |
++------------------+---------+
+| employee_id      | int     |
+| name             | varchar |
+| experience_years | int     |
++------------------+---------+
+employee_id is the primary key of this table. It's guaranteed that experience_years is not NULL.
+Each row of this table contains information about one employee.
+ 
+
+Write an SQL query that reports the average experience years of all the employees for each project, rounded to 2 digits.
+
+Return the result table in any order.
+
+The query result format is in the following example.
+
+
+https://leetcode.com/problems/project-employees-i/description/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Feedback ( TC = The Candidate ) 
+
+TC asked really good clarifying questions. Understood the types of metrics they’d drill down properly
+TC thought of really good customer metrics : onboarded, retained, resurrected, and churn rates.
+TC solidly started with data modeling - fact and dimension tables.
+TC showed how to create a cummulative fact table to compute 30/90 day rolling averages
+TC made a good justification for OLAP database. I could easily segue into the pipeline/ingestion portion of the problem
+TC understood how to employ distributed compute engines ( DCEs ) to solution the problem
+TC build a multi-stage ingestion pipeline for IoT Telemetry Data and delved into different components upon my ask
+TC justified how to extend archtiectures to real-time ; not just batching
+TC answered how to handle large volumes and large events cases and how to employ strategies to reduce upstream ingestion
+TC had really good discussions on log enrichments and canonical data in different pipeline phases.
+TC answered remaining design deep dives solidly
+TC really “drove the conversation” and the discussion ; I learned new ways of problem-solving and thinking from them.
+TC is really thinking about data quality and internal dashboards they’d present for noticing discrepancies and metrics crossing thresholds
+
+Level setting
+Senior Eng ( Google L5 ) : Strong Hire
+Staff Eng ( Google L6 ) :  Strong Hire
+Senior Staff Eng ( Google L7 ) : Hire
+
+
+
+

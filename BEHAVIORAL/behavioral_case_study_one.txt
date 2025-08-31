@@ -1,0 +1,227 @@
+Notes on TC’s peformance in senior behavioral interview mock session ( SUN, AUG 16th, 2025 ) :
+
+Questions 
+
+Tell me about yourself. What are your career goals.
+
+Herself
+She’s a full stack engineer.
+Contributions in Security Org : combat IRS fraud ; bad actors millions transactions.
+Worked with CosmosDB, Redis, CSharp
+	Reduced 60% fraud B2B and 25% B2C scenarios
+
+Drove GDPR and Privacy compliance at MSFT
+and part of on-call rotation.
+
+Goals 
+Wants to be technically strong with good systems understandings
+Be up-to-date with tech space
+Be able to help people and lead projects
+
+
+Walk me through a project that you delivered successfully.
+
+IRSF fraud fighting
+LFM job to click and upload - 
+
+
+Before - LFM job ( on-call/service eng - we used to check dboard for spikes  ). They’re run LFM jobs to look at patterns and update redis caches and recc allow/block to users
+
+She identified a gap - have a service that updates the cache - to avoid manual efforts, put a worker.
+There’s a routine thing done. 
+	
+	Single IP address- 1K requests, no SMS consumed.
+	Analyzed history ( 30 days to 90 days ) zero SMSs consumed.
+	
+
+She’s getting to technically deep -> please stick to the question
+
+
+She led the effort and contributed to it : a cron job every 15 mins look back 30 days update Redis Configs.
+
+Why can’t we automatic and reduce manual efforts.
+I saw the potential of a configurable periodic service/worker/stateless service/cronjob that I could query, based on criteria ( all the vectors ) against Gusto 30 days or 90 days , to reduce efforts by 50%.
+
+Metrics collected - reductions in manual efforts. Increase in #-of blocks. 70% less manual. 30% continuous improvement. Saved on costs by 25% B2B and 50% B2C. 
+
+Worker addressed the edge case scenario.
+
+
+Describe a time you had to troubleshoot a problem.
+
+She was on-call ; VMs started going down ( north-central-US and north-America -> 2 data centers )
+9 nodes per data center ( auto-scaling )
+She got a SEV-2 : a node in a region went down
+She executed a failover
+
+Diff centers went down for reasons unknown
+
+Smoke tests Gusto running - logged - gateway complained unreachable node
+
+She checked load balancer ( configured for /HTTP ) ( saw /TCP port up ) .
+
+She updated the config from /HTTP to /TCP
+all smoke tests fine and logged : services good.
+
+443 port unstable - added exception handling - issue no longer seen.
+
+Struggled to undertand the end issue
+Our LB configured to hit HTTP 8080, but 8080 opened wrong
+LB probed nodes and nodes unresponsive - nodes unavailable - gateway timed out ( 403 timeout )
+But she got into VM and checked TCP 443 and got ping
+She realized services up, BUT probing endpoint incorrect
+Then discovered the node is healthy.
+
+
+
+
+
+
+Tell me about a time you disagreed with someone. How did you resolve your disagreement : engineer, product manager, leadership, a customer, or so on. 
+
+She had a feature to work on.
+IRS fraud - in some countries, SMS costs are higher ( msgCost, phoneCallCost ). 
+We had a global counter to add a configuration ( 2000 SMS/day ).
+
+We wanted to add capabilities based on countries and scenarios to rate limit requests : B2B = configOne, B2C = configTwo
+We wanted granularity level.
+
+She paired with a seniorEng an a principalEng.
+It was time-sensitive. 
+
+Implemented a counter structure.
+Didn’t go for a design doc - time-sensitive & quick delivery & very new.
+
+principalEng on vacation. A diff opinion
+
+Why 3 levels of nesting ( why add partner ) just country to structure - reduce our usage/complexity for aggregations against configs.
+
+She thought more extensible ( new partners ) ( core functionality of service ) - mess business logic = data corruption ( and hard to recovery ) ( RTO ) .
+
+She delivered quicly to reduce fraud and efforts.
+
+Conversation
+Product Roadmap
+Whiteboard : 
+
+
+She ran the application and showed the outputs to principalEng.
+Her change huge ( 100+ LOC ) ( new interfaces/dependencies ).
+His change - 10 LOC. 
+Hard part :-( 
+
+
+
+She was dissappointed, but learned
+Adding FEATURE_FLAG needed. And recovery logic. And aggrs.
+It would've been a stretch ( for delivery ) .
+
+What she did was a good learning.
+How he explained his perspective.
+ 
+She wanted to quickly close.
+
+Tell me about a time you received feedback. How did you handle feedback?
+
+Keep her updates more frequent.
+She can start a thread with stakeholders & contributors
+Can tell the progress made ( this week ) ( and the next week ) 
+She can communicate more and keep more folks updated
+She started sending weekly updates
+to stakeholders, managers, etc., 
+What she learned!
+when more people involved, it’s better to create a doc and walk through approaches
+Reduce time - clear and straightforward
+how it helped?
+It gave her more visibility to the team. 
+She got more credibility, growth, and trasparency in thoughts and features.
+
+Have you ever mentored someone? If so, walk me through how you mentored this engineer. What’s your mentorship style.
+
+She was an onboarding buddy ( 3-4 people ).
+@ first, they go through trainings.
+She shared onboarding docs : services, videos, etc., 
+In the start - small features to pick up and ramp - if questions, she’d answer; in PRs, if deltas, she’d review.
+
+If she saw someone who’s worried about asking questions/reaching out - she’d schedule a 15-min or 30-min weekly meeting - do they need assistance? Or she’d help them when they pinged. She’d redirect them to domain experts if questions.
+
+Did you notice improvements?
+things unclear at first : a lot of questions asked at first.
+It’s a fraud system with high request rate - whomst to block.
+We combat fraud : how to effectively block.
+She saw the difference if they’re proactive and actively involved in design meetings and business decision-making; eager to learn. 
+how they approach : sees the delta ( 3M before and after ) ( level-dependent ).
+Mid-levels start leading the features.
+
+
+What role do you usually take in a team?
+
+Her team is split : 8-9m back - got a new direct manager.
+ENT and CONS split
+Was on ENT —> then to CONS —> hiring ramped up
+She’s focused on mentorship, ramp up, and new comers.
+Goal : avoid crossing budgets/thresholds - if a spike, engage thorough investigatation and set configs - keeps feet in business domain
+She’s mixed - mentor.
+
+
+Can you give an example of a time you succesfully delegated?
+
+Fraud mitigation - in ENT - 6 partners on behalf.
+Investigate and update config to mitigate fraud.
+Used to consume her time ( all day ). Meetings ate time
+And have to mentor
+Less time - coding, infra, elsewhere
+She spoke to her manager
+Divide responsibiilty : based on partner, among team - reduce load.
+one/2 hours - on mitigation . rest of time = feature work and Q&A and confusions.
+( distributed across team ) feature work for quarter
+She led the efforts.
+Decisioning helped - she could plan her days better. 
+REDUCE unpredictability 
+( one day = peace, another day = spike, fraud everywhere )
+8 hours + : investigate & update configs & rollouts ( BRF )
+BRF : changeSet + approvals ( managers & skip ) - docWork.
+routine work : not helping grow ( but brings down cost ) ( gets mundane ) ( but something new occasional )
+
+
+Tell me how you prioritize tasks when everything seems important.
+She focuses on liveSite : follow up with on-call ( address quickly )
+Based on feature - she talks to her manager - everything seems important ; what’s your plan and timelines for the feature.
+Security - she gives feedback.
+If we prioritize X, we will reduce more costs and manual efforts.
+She likes to check in with her manager : stack ranking of work items in beginning of quarter ( does this ranking look good ) ( or are re-alignments needed ).
+She does a quarterly exercise : start of quarter ( or 1st week ).
+If something ad-hoc, ask recc what’s reccommended - highest priority among work items.
+what if manager unsure too :
+bug in system - fraud patterns
+Fraud - newTenants.
+creationDate absent BUT other vectors allowed ( but creationDate dependency )
+we wanted to avoid redundant calls ( for better SLAs )
+We had an outage earlier
+OpsCA and impPlan
+She and her senior eng - learned bug situation - how to work with it.
+Bug highest ( money loss )
+Looked @ corePath : how to fix and time Taken
+There was a struggle, but, manager agreed
+
+trafficThrottling based on creationDate
+
+
+10. Have you ever led a team? A subgroup or some group of people during a period of time.
+
+FIRST COMPANY :
+She led a team in first company as a frontend engineer.
+Lead was on PTO ; personal reasons ( 3 months ).
+16 people company.
+She led to deliver an eCommerce platform end-to-end.
+
+MSFT :
+1 person under her - one seniorEng out ( matLeave ) questions came to her ( team is new )
+
+Her role’s shifted - questions came to her. What to do/can be done.
+Worker project high business impact ; others appreciated ( reduced on-call time ).
+
+
+
+
+
