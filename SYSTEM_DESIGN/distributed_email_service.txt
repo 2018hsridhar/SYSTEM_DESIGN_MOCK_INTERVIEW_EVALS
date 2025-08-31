@@ -1,0 +1,36 @@
+Case Study :
+I want you to design me a modern, large-scale, distributed email service, like Gmail, Outlook, or Yahoo mail.
+These services were created sometime after the initial launch of the internet, which led
+to a growth in explosion of email volume.
+
+Assumptions :
+10e6 ( 100,000 ) seconds in a day
+Powers of 10 for rapid calculations
+Feel free to leverage third-party and cloud technologies, frameworks, and services of your choice : SMTP, POP, IMAP, vendor-specific protocols.
+1 email address for each user only
+300 ( 3e2 ) days in a year
+
+Source Of The Problem :
+
+Alex Xu, System Design Interview - Volume 2 : Chapter 8 : Distributed Email Service
+
+Template Structure :
+
+Clarifying Questions :
+
+Requirements Gathering : Functional and Non-Functional
+CAP Theorem => 
+
+Back-of-the-Envelope Estimations / Capacity Planning :
+
+
+API Contract :
+
+Data Tiers / Data Models / Data Solutions :
+
+Read-Write Volumes :
+Traffic Patterns ( read-write ) 
+
+High Level Design :
+
+Design Deep Dives & Additional Talking Points:
