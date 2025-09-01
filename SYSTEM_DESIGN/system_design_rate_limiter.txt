@@ -1,0 +1,53 @@
+TC System Design Case Study :
+
+Rate limiting is a crucial component in modern day networks. They ensure that infrastructure and services are not inundated with a large number of external requests in a small time span, preventing problems like a thundering herd, systematic cascading failure, and DDOS ( distributed-denial-of-service ) attacks. They also reduce costs and resource consumption.
+
+I want you to design me a distributed rate limiter.
+
+The meat of the question is a strong focus of popular rate limting algorithms and discussing tradeoff analysis for them:
+Token Bucket
+Leaking bucket
+Fixed window counter
+Sliding window log
+Sliding window counter
+
+Safe Assumptions
+Can use scientific notation with powers of 10 for fast computations : e.g. 10e9, 10e6
+100,000 seconds in a day
+100 days in a year
+Can leverage any third-party software, cloud technologies, and of-the-shelf components.
+
+Question : Sourced from Alex Xu's System Design Interview, Volume 1, Chapter titled `Design a Rate Limiter` 
+
+
+Clarifying Questions :
+
+Requirements Gathering - NonFunctional and Functional :
+
+Rate Limting Algorithms :
+
+High Level System Design :
+
+Design Deep Dives :
+
+
+Feedback
+
+Where TC Did Well :
+TC did a solid job gathering requirements : functional and non-functional.
+TC understands client type : user, IP, API Key / API endpoint. Client_type, traffic_type combinatino
+TC discussed tradeoff on where to put rate limiters : in API Gateway or externalized away
+Recognized HTTP content is sufficient
+Recognized key of latency being justification
+TC recognized atomic counters for rate limiting and usage of REDIS caches
+TC recognized need for shared/global counter ( rate limiting across the board, not just one specific limiter )
+TC recognizes how to leverage Redis to store rate limiting counters and leveraging of AOF, RDB Snapshots, and Sentinels for leader election ( primary-secondary )
+TC gets usage of Zookeeper as push mechanism for rules changes
+TC talked about ( caching, CDC, cronjobs ) for getting rate-limiting rules efficiently from database
+TC talked about counters : (in Memory, external persistency ) in commit log or DB
+TC talked about blocking traffic with TTL ( and 429 too many requests )
+
+Improvements :
+TC can spend more time and flesh our more clarifying questions
+TC first needs to describe how algo works and THEN dive into trade-off analysis
+TC, on ask, answered questions about WAL commit log.
