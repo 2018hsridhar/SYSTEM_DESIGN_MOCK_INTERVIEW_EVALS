@@ -1,0 +1,32 @@
+TC performance ( design a distributed object storage solution )
+
+What they did well :
++ TC thought about getting end personas using our systems
++ TC starts off with strong first impression on clarifying questions gathering
++ TC thought about constraints : file-size, file dtaa
++ TC thought about business personas ACLs
++ TC really thinking well about scalability ( how much data user needs to store ). TC seems 10% Y-O-Y growth rate ( doubling factors )
++ TC really good at data modeling
++ TC thought about DAP : Data Access Patterns - fast or slow access
++ TC considered pre-empting problems : bursy traffic, ACls - in their high-level design
++ TC was able to strongly answer my design deep dives questions
+
+Where they could use improvement :
+TC can focus on gathering non-functionals at a higher-level before focusing on CAP theorem .
+Unfamiliar with some technologies
+Can refine their time management skills
+
+
+Presigned URLs :
+multiple devices
+built on HTTP requests
+simpler to implement
+
+WS :
+handle downed machines
+
+
+What I can do better
+TI stop sticking to a rigid template : please allow more cognitive flexibility here
+TI needs to inform interviewer to not spend significant time on capacity planning
+TI can refernce a book or case study but shouldn’t force TC to ascribe to a rigid solution
