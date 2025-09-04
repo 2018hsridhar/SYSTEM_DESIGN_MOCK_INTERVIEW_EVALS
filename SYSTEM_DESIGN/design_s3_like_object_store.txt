@@ -1,3 +1,42 @@
+Case Study :
+I want you to design me a distributed object store on the cloud. Your solution should be similar to market offerings provided by major cloud providers : AWS S3, Google Cloud Spanner, and Azure BLOB ( Binary large Object Files ). 
+Your object store should be cheap and automatically scale and be able to handle a diverse array of large content in the form of BLOBs : big immutable files. 
+Support operations like static content on a website, parquet files in data lake, or pastebin-esque operations
+
+Instructions :
+- Type in the text editor or the whiteboard so that I can capture more details on your behalf
+- Feel free to toggle between the text editor and the whiteboard
+
+Assumptions :
+10e6 ( 100,000 ) seconds in a day
+Powers of 10 for rapid calculations
+Feel free to leverage third-party and cloud technologies, frameworks, and services of your choice
+300 ( 3e2 ) days in a year
+
+Source Of The Problem :
+
+Alex Xu, System Design Interview - Volume 2 : Chapter X : Design a Distributed Object Storage System
+https://www.youtube.com/watch?v=zplIwqWBhwg
+
+Template Structure :
+
+Clarifying Questions :
+
+Requirements Gathering : Functional and Non-Functional
+CAP Theorem => 
+
+Back-of-the-Envelope Estimations / Capacity Planning :
+
+Data Tiers / Data Models / Data Solutions :
+
+Read-Write Volumes :
+Traffic Patterns ( read-write ) 
+
+High Level Design :
+
+Design Deep Dives & Additional Talking Points:
+
+
 TC performance ( design a distributed object storage solution )
 
 What they did well :
