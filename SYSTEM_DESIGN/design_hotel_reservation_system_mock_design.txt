@@ -1,0 +1,75 @@
+
+Case Study :
+I want you to design me a hotel reservation system for a hotel chain, such as Marriot International. The reservation system should be highly scaleable.
+You can assume you can already integrate with existing payments systems.
+
+Out of Scope :
+Internationalization ( I18N ) : Customer Base is Strictly American
+
+
+Emphasis Areas :
+Race Conditions and concurrency with the double booking problem
+
+Instructions : 
+Feel free to toggle between the text editor and the whiteboard
+Emphasis on diagram correctness over prettiness
+The environment is yours to leverage
+type out your thought process as much as possible on the editor/whiteboard
+
+
+Assumptions :
+10e6 ( 100,000 ) seconds in a day
+Powers of 10 for rapid calculations
+Feel free to leverage third-party and cloud technologies, frameworks, and services of your choice
+300 ( 3e2 ) days in a year
+
+Source Of The Problem :
+
+Alex Xu, System Design Interview - Volume 2 : Chapter 7 : Hotel Reservation System
+
+Template Structure :
+
+Clarifying Questions :
+
+Requirements Gathering : Functional and Non-Functional
+CAP Theorem => 
+
+API Contracts :
+
+Back-of-the-Envelope Estimations / Capacity Planning ( low emphasis, can skip this section )
+
+Data Tiers / Data Models / Data Solutions :
+
+Read-Write Volumes :
+Traffic Patterns ( read-write ) 
+
+High Level Design :
+
+Design Deep Dives & Additional Talking Points:
+
+
+TC Assessment
+
+What went well :
++ TC Asking good clarifying questions
++ TC got : focused on room type and a fixed number of rooms - versus booking by room number.
++ TC got 4xx and 5xx errors
++ TC got JSON payloads
++ Client-Backend server communication via HTTP(S) protocols
+dont need as secure/structured as SOAP ( using XML ) 
+JSON satisfactory
+RPC : more internal communications ( internal servers & services )
+WS : no RT communication
++ On ask, TC understands that on page Fetch, they can get parameters easily ( params in URL versus in body ) for caching.
+
+
+Where to use refinements :
+TC can define PK(…) FK(…) relationships in their data model, and their general understandings of data modeling
+TC can provide the ballpark figures to drive the conversation in their capacity planning
+TC needs to study denormalized data versus normalized data for SQL databases. The trade off : network costs with joins versus data storage redundancy.
+TC is very new on system design but performend exceptionaly on their second mock interview
+TC can work on their diagramming skills to be more comprehensive
+
+
+
+
