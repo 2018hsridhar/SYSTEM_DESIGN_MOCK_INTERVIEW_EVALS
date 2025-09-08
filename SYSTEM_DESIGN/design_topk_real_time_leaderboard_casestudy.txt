@@ -1,0 +1,91 @@
+Case Study :
+
+I want you to design me a real-time gaming leaderboard for an online mobile game.
+Leaderboards are common across gaming and other places; they display the players who lead a specific tournament or competition. 
+Users are assigned points based on task completion and challenge completion.
+The user with the most points is at the top of the leaderboard
+
+Example of top10 players in a leaderboard :
+
+Rank	Player	Points
+1		hari		10
+2		Sophia	8
+3		Julian	6
+4		Shrinal	2
+
+Out of Scope :
+Internationalization ( I18N ) : Develop strictly for American User Base
+
+Capacity Planning Assumptions :
+10e6 ( 100,000 ) seconds in a day
+Powers of 10 for rapid calculations
+Feel free to leverage third-party and cloud technologies, frameworks, and services of your choice
+300 ( 3e2 ) days in a year
+
+Source Of The Problem :
+
+Alex Xu, System Design Interview - Volume 1 : Chapter X : Design A RealTime Gaming Leaderboard
+
+Template Structure :
+
+Clarifying Questions :
+
+Requirements Gathering : Functional and Non-Functional
+CAP Theorem => 
+
+Back-of-the-Envelope Estimations / Capacity Planning :
+
+Data Tiers / Data Models / Data Solutions :
+
+Read-Write Volumes :
+Traffic Patterns ( read-write ) 
+
+High Level Design :
+
+Design Deep Dives & Additional Talking Points:
+
+
+
+
+
+Emphasis Areas :
+Performancy, LowLatency
+Incorporation of Redis, SortedSets, and SkipLists
+Discussion on Redis cache cluster sharding on higher external system loads
+partition strategies : fixed versus hash
+Consideration across alternative data sources
+Map-Reduce Esque paradigms for top-10 individuals
+
+
+
+
+
+
+
+
+Where I can do better
++ Spend less time on the API contract
+
+
+TC ( Overall ) Evaluation
+TC performed strongly at senior-level expectations
+
+What went well :
++ TC thought about idempotent APIs
++ TC did better at requirements gathering and scoping out requirements
++ TC “drove-the-conversation” better
++ TC really thought about rebalancing server clusters during off-peak hours on asks across different partitioning strategies
++ TC solidly understands rebalancing of Redis partitions in a Redis cluster and did a trade-off analysis well
++ TC made a good high-level design diagram and on my ask, was able to extend and modify it
++ TC solidly understands the data modeling and data tier section of this question
+
+Where to use improvement :
+TC can spend a bit more time on the clarifying questions
+TC can work more on the skill of proactively thinking of what an interviewer could ( or would ) ask in a system design interview
+TC can work a bit more on their time management skills
+TC can spend more time upfront on the asking of clarifying questions
+
+
+
+
+
