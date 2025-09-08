@@ -1,0 +1,40 @@
+Leetcode problems :
+
+(A) https://leetcode.com/problems/word-break/description/
+(B) https://leetcode.com/problems/implement-trie-prefix-tree/description/
+(C) https://leetcode.com/problems/implement-trie-ii-prefix-tree/description/
+
+TC notes ( evaluation ) 
+
+'''
+Instructions
+- Please type out your thought process.
+- Focus on getting a working solution and then optimize on top of it.
+- Focus on a working solution over readability.
+- Feel free to either use the whiteboard or diagram on pen-and-paper.
+'''
+
+
+
+WHAT TC DID WELL :
++ TC targeting mid-level : they’re an experienced candidate.
++ TC recognized very number agnostic : focus on satisfiability.
++ TC made a really good start to the problem with their observations.
++ TC makes sense to leverage or to think about a graph data structure.
++ TC thinking about constraints : when do violations arise up.
++ TC thought about connected components problem modeling
++ TC is definitely on the right track to a solution by the 35:00 minute mark
++ TC did a good job explaining their code with dry runs on the two unit test cases provided
++ TC did a good job thinking of stress test cases and corner cases ( e.g. single equations )
++ TC caught their bug on the visited set
++ TC did a superb job answering my extension questions.
+
+WHERE TC CAN USE IMPROVEMENT :
+TC is on the right track but struggles to see problem decomposition into the equality cases and the inequality cases
+TC can refine and work on their problem-solving speed if they have to target higher levels
+TC can refine their debugging skills : visited() set on the dfs(…)
+
+
+
+
+
