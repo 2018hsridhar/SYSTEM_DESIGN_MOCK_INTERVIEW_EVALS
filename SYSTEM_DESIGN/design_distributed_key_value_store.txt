@@ -1,0 +1,55 @@
+Case Study :
+
+I want you to design me a distributed key-value store that can automatically scale across multiple servers. 
+Your design should emulate popular offerings such as No-SQL Key-Value databases ( e.g. Amazon DynamoDB ) or Distributed Key-Value Caches ( e.g. Redis ande MemCacheDB ).
+
+The keys and the values can take on any form, but ideally, keys are plain text or hashed, for performance reasons.
+Additionally, for each key-value pair, the key is unique and the value associated with the key is accessibel through the key
+
+Your key-value store must support two key operations :
+
+(A) PUT(KEY,VALIUE) // insert “value” associated with the “key”
+(B) GET(KEY) // get “value” associated with the “key”
+
+Here’s an example snippet of the key-value store :
+key		value
+145		“John"
+147		“Martha"
+160		“Stewart"
+
+
+Out of Scope :
+Internationalization ( I18N ) : Develop strictly for American User Base
+
+Emphasis Areas :
+CAP Theorem Discussions
+Consistent hashing ring discussions
+SSTables and read-write path discussions
+
+Capacity Planning Assumptions :
+10e6 ( 100,000 ) seconds in a day
+Powers of 10 for rapid calculations
+Feel free to leverage third-party and cloud technologies, frameworks, and services of your choice
+300 ( 3e2 ) days in a year
+
+Source Of The Problem :
+
+Alex Xu, System Design Interview - Volume 1 : Chapter X : Design a Key-Value Store
+
+Template Structure :
+
+Clarifying Questions :
+
+Requirements Gathering : Functional and Non-Functional
+CAP Theorem => 
+
+Back-of-the-Envelope Estimations / Capacity Planning :
+
+Data Tiers / Data Models / Data Solutions :
+
+Read-Write Volumes :
+Traffic Patterns ( read-write ) 
+
+High Level Design :
+
+Design Deep Dives & Additional Talking Points:
