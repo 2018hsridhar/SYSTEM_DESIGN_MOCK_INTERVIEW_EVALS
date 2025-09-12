@@ -1,0 +1,40 @@
+Case Study :
+I want you to design me a distributed message queue. These components 
+are used to provide communication and coordination in highly scaleable, asyncrhonous systems.
+Popular examples include Apache Kafka, RabbitMQ, and Apache ActiveMQ
+We first start of with designing a traditional distributed message queue, but if time permitting, we’ll move onto 
+additional features more characteristic of event streaming platforms.
+
+
+Out of Scope :
+Internaiontalization ( I18N ) : we strictly buld for American user base
+Legal, Compliance, & Regulatory Guidelines
+
+Assumptions :
+10e6 ( 100,000 ) seconds in a day
+Powers of 10 for rapid calculations
+Feel free to leverage third-party and cloud technologies, frameworks, and services of your choice
+300 ( 3e2 ) days in a year
+Diagram correctness over prettiness
+
+Source Of The Problem :
+
+Alex Xu, System Design Interview - Volume 2 : Chapter 4 : Distributed Message Queue
+
+Template Structure :
+
+Clarifying Questions :
+
+Requirements Gathering : Functional and Non-Functional
+CAP Theorem => 
+
+Back-of-the-Envelope Estimations / Capacity Planning :
+
+Data Tiers / Data Models / Data Solutions :
+
+Read-Write Volumes :
+Traffic Patterns ( read-write ) 
+
+High Level Design :
+
+Design Deep Dives & Additional Talking Points:
