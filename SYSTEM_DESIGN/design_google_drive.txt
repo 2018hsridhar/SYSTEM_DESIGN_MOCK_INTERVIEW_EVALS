@@ -1,0 +1,42 @@
+Case Study :
+
+Cloud Storage Services - Google Drive, Dropbox, One Drive - have grown in massive popularity.
+
+I want you to design me a system similar to Google Drive.
+
+Google Drive is a file storage and synchronization service : you can store multi-modal content in the cloud, access across any device, and share the files with friends, families, and coworkers.
+
+Emph : 
+Handling of a sync conflict ( between two users ) 
+
+Out of Scope :
+Google doc style editing and collaboration across multiple people
+
+Assumptions :
+10e6 ( 100,000 ) seconds in a day
+Powers of 10 for rapid calculations
+Feel free to leverage third-party and cloud technologies, frameworks, and services of your choice
+300 ( 3e2 ) days in a year
+Diagram correctness over prettiness
+
+Source Of The Problem :
+
+Alex Xu, System Design Interview - Volume 1 : Chapter 13 : Design Google Drive
+
+Template Structure :
+
+Clarifying Questions :
+
+Requirements Gathering : Functional and Non-Functional
+CAP Theorem => 
+
+Back-of-the-Envelope Estimations / Capacity Planning :
+
+Data Tiers / Data Models / Data Solutions :
+
+Read-Write Volumes :
+Traffic Patterns ( read-write ) 
+
+High Level Design :
+
+Design Deep Dives & Additional Talking Points:
