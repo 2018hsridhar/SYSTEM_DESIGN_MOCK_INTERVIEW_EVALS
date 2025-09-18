@@ -1,0 +1,22 @@
+TC Notes Evaluation [ TC := The Candidate ]
+Overall Assessment : Qualifies at the Google L6 bar. I won’t speak on higher leveling. Would also pass at any level under L6 too.
+
+What TC did well ( the positives ) :
++ TC understood to “lead/drive the conversation” ; unlike other interviews in the past, I didn’t have to be as proactive
++ TC started off the first 15 minutes strong with clarifying questions and requirements gathering. SOLID FIRST IMPRESSION!!
++ TC pre-emptively addresses most of my asks : they recognize what an interview would start probing or deep-diving into
++ TC recognized latency vs consistency trade off : low-level vs high-level quorums
++ TC recognizes how to really build off of Kafka for their distributed message queue
++ TC understands multiple aspects of the problem : very solid multi-perspective thinking.
++ TC, on my ask to think of other constraints or alternatives, was able to address them.
++ TC understands how to route clients/consumers to brokers based on coordinating service :-) !!!
++ TC understands how to store , read, and write the data ( high level understands of the internals of a single machine showed up ))
++ TC understands leader election, split brain problem, and message loss.
++ TC delivered a diagram and sufficient text showcasing their thought process : I can take this to a hiring panel to build a stronger case on their behalf
++ TC really talked well about trade-offs across many sections of the problem ; they didn’t just say “here’s the solution” BUT rather “here’s a configurable solution and here’s what we should ideally target and why to target for it”
++ TC “taught” new techniques of thinking of distributed systems problems - at the higher level, teaching something “new” to an interviewer is a strong signal.
+
+Where TC can improve ( the non-positives ) :
+- TC can brush up again on write append logs and OS disk page caching strategies.
+- TC can review the quorum equation : R + W > N inequality. 
+- TC can work on their problem-solving speed & time management skill in specific sections
