@@ -1,0 +1,67 @@
+ML System Design Case Study :
+
+Social media platforms like Facebook, LinkedIn, and Twitter have significantly grown in the past couple of years, and they enforce standard guidelines to enable integrity and platform safety for their users.
+I want you to design me a harmful content detection system focused on integrity enforcement and bad actor/fake actor detection. 
+Your system should proactively monitor new posts, detect harmful content, and remove or demote said posts if the content violates guidelines.
+Your system should also be highly scaleable.
+
+You may leverage pre-existing ML technologies, algorithms, and architectures. But we will not discuss them in significant depth for the sake of time.
+
+Template Structure :
+
+Clarifying Questions :
+
+(ML Problem Framing ) Business Objective, ML Objective, & ML Category :
+
+Feature Engineering :
+
+Data Engineering :
+
+Model Selection, Model Training, and Loss Functions :
+
+High Level ML System Design :
+
+Online Metrics :
+
+Offline Metrics :
+
+Additional Talking Points :
+
+Source of the Problem :
+
+Machine Learing System Design Interview : An Insiders Guide - Chapter 5: Harmful Content Detection
+
+
+
+
+SELF ASSESSMENT : treat each section equally and avoid the human bias towards negativity
+
+Feedback delivered verbally and in writings
+
+TC overall performance : strong and meetings senior-level bar for M.A.A.N.G. companies.
+
+What did TC thinks they did well ?
++ TC did a good job discussing multi-stage architecture
++ TC has clear system understanding
++ TC strong feature eng and data eng
++ TC asked good clarifying questions
++ TC got design deep dives questions
++ TC strong in ML modeling and selection of models
++ TC has strong communication skills
++ TC good ML system diagramming
++ TC good offline metrics gathering
+Where TC can do better/use refinement ?
+- TC can work on time management skills
+- TC can discuss feedback loop and bias handling
+- TC could've derived early fusion vs late fusion ( with less prompting )
+- TC could've worked more on technical discussion depth
+TC can refine their online metrics gathering
+
+ML Domain Interviews -> GenAI and LLMs, but thinking more NLP
+In most cases, there’s no strict format
+
+
+
+
+
+
