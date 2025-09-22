@@ -1,0 +1,107 @@
+TC Eval
+
+Why WS :
+(A) Persist an open channel
+(B) If HTTP, spikes in traffic - open and close connections
+(C) Long Polling - why not this? Bwser and other devices - limited # long conections
+that can even be open. At our scale, it doesn’t work well.
+
+Query patterns differ : user vs chat
+different DB
+chat = continuous interactions : user = one off
+userProfile = ACID relDB
+chatData = focus on avail
+	tSeries : no time-based analysis
+	DDB or something ( noSQL ) 
+
+noSQL :
+	chat not structured data + 1KB text
+	bursty traffic many chats - easier to scale NoSQL
+	
+elasticSearch :
+no string search directly : overkill
+accessPattern : ( read-write ratio ) 
+not extensive searching
+accessPatterns infrequent ( <5% ) 
+store period of data ( last 2/3 days )
+
+chat history
+api server
+range : last 30 days or last 60 days
+
+
+
+
+
+
+
+
+
+
+
+
+
+SELF ASSESSMENT :
+TI = The Interviewer
+TC = The Candidate
+Overall performance : strong and meets senior-level expectations
+
+WHAT TC DID WELL :
++ TC gathered functional and non-functional requirements well
++ TC engaged in good tradeoff discussions on design choices
++ TC addressed multiple problems and design deep dives, on ask from TI
++ TC demonstrates good system design understandings
++ TC understands fundamentals of web sockets, long polling, SSE, and HTTP
++ TC understands how to leverage Kafka to scale the system or address offline clients
+
+WHERE TC  CAN USE IMPROVEMENT :
+TC can spend more time asking clarifying questions and as more thorough clarifying questions
+TC can work on the end-to-end flow and high-level diagramming skils.
+TC took hints or nudges from the interviewer : they can proactively address gaps
+TC can refresh their understanding of how to derive the best database, according to problem requirements/constraints ( e.g. data access patterns or data payload representations )
+
+
+
+
+Case Study :
+
+I want you to design me a chat system, with a strong emphasis on one-to-one chat.
+Population one-to-one chat applications include Facebook messenger, WhatsApp, and WeChat.
+If time permitting, we can look into group chats like Discord ( a gaming chat app ) or Slack ( an office chat app ).
+
+
+Instructions :
+Your system should be highly scaleable.
+You may leverage pre-existing cloud services, technologies, and frameworks.
+Focus on diagram correctness over diagram prettiness
+Plesae type out your thought process.
+
+Template Structure :
+
+Assumptions :
+10e6 ( 100,000 ) seconds in a day
+Powers of 10 for rapid calculations
+Feel free to leverage third-party and cloud technologies, frameworks, and services of your choice
+300 ( 3e2 ) days in a year
+
+Source Of The Problem :
+
+Alex Xu, System Design Interview - Volume 2 : Chapter 10 : Design a Stock Exchange
+
+Template Structure :
+
+Clarifying Questions :
+
+Requirements Gathering : Functional and Non-Functional
+CAP Theorem => 
+
+Back-of-the-Envelope Estimations / Capacity Planning :
+
+Data Tiers / Data Models / Data Solutions :
+
+Read-Write Volumes :
+Traffic Patterns ( read-write ) 
+
+High Level Design :
+
+Design Deep Dives & Additional Talking Points:
