@@ -1,0 +1,38 @@
+Case Study :
+
+We’ll tackle a classic system design question : I want you to design me a shortURL generation service.
+
+Background : If you’re given a long URL, such as http://www.systeminterview.com/k1=t1&...&kn=tn, you need to create a URL with an alias of shorter length, such as https://tinyurl.com/y7keocwj
+
+Clicking the alias should redirect you to the original long URL
+
+Out of Scope :
+- I18N ( Internationalization ) : we build only for an American customer base
+
+Assumptions :
+10e6 ( 100,000 ) seconds in a day
+Powers of 10 for rapid calculations
+Feel free to leverage third-party and cloud technologies, frameworks, and services of your choice
+300 ( 3e2 ) days in a year
+
+Source Of The Problem :
+
+Alex Xu, System Design Interview - Volume 1 : Chapter 13 - Design a Search Autocomplete System
+
+Template Structure :
+
+Clarifying Questions :
+
+Requirements Gathering : Functional and Non-Functional
+CAP Theorem => 
+
+Back-of-the-Envelope Estimations / Capacity Planning :
+
+Data Tiers / Data Models / Data Solutions :
+
+Read-Write Volumes :
+Traffic Patterns ( read-write ) 
+
+High Level Design :
+
+Design Deep Dives & Additional Talking Points:
