@@ -1,0 +1,39 @@
+Case Study :
+I want you to design me a search autocomplete system ( a.k.a. design top k or design top k most searched queries ).
+When searching on Google, Amazon, or other platforms, as you type in the search box, one or more matches for the search term are presented to you.
+The feature is also referred to as autocomplete, typeahead, or incremental search.
+
+Example : if you type in “dinner” into Google Search, it’ll give you suggestions like “dinner ideas, dinner recipes, dinnerly”
+
+
+
+Out of Scope :
+- I18N ( Internationalization ) : we build only for an American customer base
+
+Assumptions :
+10e6 ( 100,000 ) seconds in a day
+Powers of 10 for rapid calculations
+Feel free to leverage third-party and cloud technologies, frameworks, and services of your choice
+300 ( 3e2 ) days in a year
+
+Source Of The Problem :
+
+Alex Xu, System Design Interview - Volume 1 : Chapter 13 - Design a Search Autocomplete System
+
+Template Structure :
+
+Clarifying Questions :
+
+Requirements Gathering : Functional and Non-Functional
+CAP Theorem => 
+
+Back-of-the-Envelope Estimations / Capacity Planning :
+
+Data Tiers / Data Models / Data Solutions :
+
+Read-Write Volumes :
+Traffic Patterns ( read-write ) 
+
+High Level Design :
+
+Design Deep Dives & Additional Talking Points:
