@@ -1,0 +1,35 @@
+Case Study : 
+
+A news feed is a feature of social network platforms that enable user engagement by showing friends’ recent activities on their timelines.
+Many social networks - Facebook, Twitter, and LinkedIn - personalized their news feeds to maintain user engagement.
+I want you to design a personalized news feed system.
+
+
+Assumptions of Safety
+We build only for an American population ( I18N Internationlization is out of scope )
+Your system should be highly scaleable.
+You may leverage pre-existing ML technologies, algorithms, and architectures. But we will not discuss them in significant depth for the sake of time .
+
+Template Structure :
+
+Clarifying Questions :
+
+(ML Problem Framing ) Business Objective, ML Objective, & ML Category :
+
+Feature Engineering :
+
+Data Engineering :
+
+Model Selection, Model Training, and Loss Functions :
+
+High Level ML System Design :
+
+Online Metrics :
+
+Offline Metrics :
+
+Additional Talking Points :
+
+Source of the Problem :
+
+Machine Learing System Design Interview : An Insiders Guide - Chapter 10 : Personalized News Feed
